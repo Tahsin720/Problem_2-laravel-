@@ -53,7 +53,7 @@
     <div class="container" style="align-content: center;">
         <div class="row">
             <div class="col-md-6">
-                <form action="{{route('add_item')}}" onsubmit="return validation()" method="POST" autocomplete="off">
+                <form action="{{route('add_item_variant')}}" onsubmit="return validation()" method="POST" autocomplete="off">
                     @csrf
                     <fieldset><legend class="text-center">Valid information is required to register. <span class="req"><small> required *</small></span></legend>
                     

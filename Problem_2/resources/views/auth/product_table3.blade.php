@@ -46,7 +46,7 @@
         <h3>Registered infos Info</h3>
         
         <div class="d-flex justify-content-center links" style="margin-bottom: 10px;">
-            Want to register new account?<a href='registration'>Register</a>
+            Want to add new item?<a href='registration3'>Add Item</a>
         </div>
        
         

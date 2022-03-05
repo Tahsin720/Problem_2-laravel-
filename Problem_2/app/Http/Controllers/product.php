@@ -12,10 +12,10 @@ class product extends Controller
         $info = product_list::all();
         return view("auth.product_list", ['info' => $info]);
     }
-    public function add_product(){
-        return view("auth.add_product");
+    public function add_variant(){
+        return view("auth.add_variant");
     }
-    public function addItem(Request $request){
+    public function addItemvariant(Request $request){
         $product = new product_list();
         $product->product_name = $request->name;
         $product->variant = $request->variant;
@@ -40,6 +40,49 @@ class product extends Controller
         }
         
     }
-    
+    public function registration3(){
+        return view("auth.Registration");
+    }
+    public function registerUser_3(Request $request){
+        $variant_3 = new variant_3();
+        $variant_3->variant_3_name = $request->variant_3;
+        $variant_3->city = $request->city;
+        $variant_3->country = $request->country;
+        $variant_3->email = $request->email;
+        // $variant_3->password = Hash::make($request->password);
+        $variant_3->password = $request->password;
+        $variant_3->date_of_birth = $request->date_of_birth;
+        $variant_3->status = $request->status;
+        $res = $variant_3 -> save();
+        if($res){
+            back()->with('success', 'You have registered successfully!');
+            return redirect('/');
+        }
+        else{
+            return back()->with('fail', 'Something Worng!');
+        }
+    }
+    public function registration2(){
+        return view("auth.Registration_2");
+    }
+    public function registerUser_2(Request $request){
+        $variant_3 = new variant_2();
+        $variant_3->variant_3_name = $request->variant_3;
+        $variant_3->city = $request->city;
+        $variant_3->country = $request->country;
+        $variant_3->email = $request->email;
+        // $variant_3->password = Hash::make($request->password);
+        $variant_3->password = $request->password;
+        $variant_3->date_of_birth = $request->date_of_birth;
+        $variant_3->status = $request->status;
+        $res = $variant_3 -> save();
+        if($res){
+            back()->with('success', 'You have registered successfully!');
+            return redirect('/');
+        }
+        else{
+            return back()->with('fail', 'Something Worng!');
+        }
+    }
     
 }

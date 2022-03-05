@@ -44,7 +44,7 @@
         <h3>Product Info</h3>
         
         <div class="d-flex justify-content-center links" style="margin-bottom: 10px;">
-            Want to add new product?<a href='add_product'>Add Product</a>
+            Want to add new Variant?<a href='add_variant'>Add Variant</a>
         </div>
        
         
