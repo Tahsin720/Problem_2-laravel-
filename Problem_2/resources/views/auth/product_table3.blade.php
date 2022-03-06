@@ -58,6 +58,7 @@
                             <th>Color</th>
                             <th>Size</th>
                             <th>Price</th>
+                            <th>Buttons</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -70,7 +71,7 @@
                                     <td>
                                     <div class="btn">
                                         <div class="edit">
-                                            <form action = "" method="POST">
+                                            <form action = "{{route('edit_3_page')}}" method="POST">
                                                 @csrf
                                                 <input type="hidden" id="id" name="id" value={{$infos['id']}}>
                                                 <input class="btn" type="submit" name="edit" id="edit" value="Edit">

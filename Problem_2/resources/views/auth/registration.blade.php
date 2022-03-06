@@ -58,116 +58,66 @@
                     <fieldset><legend class="text-center">Valid information is required to register. <span class="req"><small> required *</small></span></legend>
                     
                     <div class="form-group">
-                        <label for="username"><font color =red>*</font> User name </label> 
-                            <input class="form-control" type="text" id = "user" name = "user" autocomplete="off" required>
-                            <div class = "alert" id="errUser"></div>  
+                        <label for="gender"><font color =red>*</font> Gender </label> 
+                            <input class="form-control" type="text" id = "gender" name = "gender" autocomplete="off" required>
+                            <div class = "alert" id="errgender"></div>  
                     </div>
 
                     <div class="form-group">
-                        <label for="email"><font color =red>*</font> Email Address: </label> 
-                            <input class="form-control" required type="text" id = "email" name="email" required>   
-                                <div class = "alert" id="errEmail"></div>
+                        <label for="color"><font color =red>*</font> Color Address: </label> 
+                            <input class="form-control" required type="text" id = "color" name="color" required>   
+                                <div class = "alert" id="errcolor"></div>
                     </div>
 
                     <div class="form-group">
-                        <label for="password"><font color =red>*</font> Password: </label><br>
-                        <input type = "Password" id = "password" name = "password" placeholder="Enter Password" autocomplete="off" required>
-                        <div class = "alert" id="errPass"></div>
+                        <label for="size"><font color =red>*</font> Size: </label><br>
+                        <input type = "size" id = "size" name = "size" autocomplete="off" required>
+                        <div class = "alert" id="errsize"></div>
                     </div>
 
                     <div class="form-group">
-                        <label for="date_of_birth"><font color =red>*</font> Date of Birth: </label> 
-                            <input class="form-control" type="date" id = "date_of_birth" name = "date_of_birth" placeholder="hyphen or single quote OK" required />  
-                                <div class = "alert" id="errdate"></div>
+                        <label for="price"><font color =red>*</font> Price: </label> 
+                            <input class="form-control" type="text" id = "price" name = "price" required >  
+                                <div class = "alert" id="errPrice"></div>
                     </div>
 
                     <div class="form-group">
-                        <label for="city"><font color =red>*</font> City: </label> 
-                            <input class="form-control" type="text" id = "city" name = "city" placeholinr="hyphen or single quote OK" required />  
-                                <div class = "alert" id="errcity"></div>
+                        <input type = "submit" name = "" value = "Add Item">
                     </div>
 
-                    <div class="form-group">
-                        <label for="country"><font color =red>*</font> Country: </label> 
-                            <input class="form-control" type="text" id = "country" name = "country" placeholinr="hyphen or single quote OK" required />  
-                                <div class = "alert" id="errCountry"></div>
-                    </div>
-
-                    <label for="Active or Inactive?"><font color =red>*</font> Active or Inactive? </label>  
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" id="active" name="status" value="Active" required>
-                        <label class="form-check-label" for="exampleRadios1">
-                        Active
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" id="inactive" name="status" value="Inactive" required>
-                        <label class="form-check-label" for="exampleRadios2">
-                        Inactive
-                        </label>
-                    </div>
-                    <br>
-                    <div class="form-group">
-                        <input type = "submit" name = "" value = "Register">
-                    </div>
                     </fieldset>
             </form>
         </div>
     </div>
     <script type="text/javascript">
         function validation(){
-            var country = document.getElementById('country').value;
-            var city = document.getElementById("city").value;
-            var email = document.getElementById("email").value;
-            var user = document.getElementById("user").value;
-            var password = document.getElementById("password").value;
+            var gender = document.getElementById('gender').value;
+            var color = document.getElementById("color").value;
+            var price = document.getElementById("price").value;
+            var size = document.getElementById("size").value;
 
-            if(user.length < 2){
-                document.getElementById("errUser").innerHTML = "**Write more than one character**";
+            if(gender.length < 2){
+                document.getElementById("errgender").innerHTML = "**Write more than one character**";
                 return false;
             }
-            if(!isNaN(user)){
-                document.getElementById("errUser").innerHTML = "**Write only alphabets**";
+            if(!isNaN(gender)){
+                document.getElementById("errgender").innerHTML = "**Write only alphabets**";
                 return false;
             }
-            if(email.ininxOf('@')<= 0){
-                document.getElementById("errEmail").innerHTML = "**Worng position of @**";
+            if(color.length < 2){
+                document.getElementById("errcolor").innerHTML = "**Write more than one character**";
                 return false;
             }
-            if(email.charAt(email.length-4) != '.'){
-                document.getElementById("errEmail").innerHTML = "**Worng position of . **";
+            if(!isNaN(color)){
+                document.getElementById("errcolor").innerHTML = "**Write only alphabets**";
                 return false;
             }
-            if(password.length < 8){
-                document.getElementById("errPass").innerHTML = "**Password must be at least 8 characters**";
+            if(size.length == 1){
+                document.getElementById("errsize").innerHTML = "**size must be 1 characters**";
                 return false;
-            }
-            if(password.search(/[0-9]/) == -1){
-                document.getElementById("errPass").innerHTML = "**Password must be contained at least 1 numerical Value**";
-                return false;
-            }
-            if(password.search(/[a-z]/) == -1){
-                document.getElementById("errPass").innerHTML = "**Password must be contained at least 1 lower case character**";
-                return false;
-            }
-            if(password.search(/[A-Z]/) == -1){
-                document.getElementById("errPass").innerHTML = "**Password must be contained at least 1 Upper case character**";
-                return false;
-            }
-            if(country.length < 2){
-                document.getElementById("errCountry").innerHTML = "**Write more than one character**";
-                return false;
-            }
-            if(!isNaN(country)){
-                document.getElementById("errCountry").innerHTML = "**Write only alphabets**";
-                return false;
-            }
-            if(city.length < 2){
-                document.getElementById("errcity").innerHTML = "**Write more than one character**";
-                return false;
-            }
-            if(!isNaN(city)){
-                document.getElementById("errcity").innerHTML = "**Write only alphabets**";
+
+            if(isNaN(price)){
+                document.getElementById("errPrice").innerHTML = "**Write only Integers**";
                 return false;
             }
         }

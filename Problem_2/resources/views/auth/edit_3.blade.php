@@ -49,46 +49,63 @@
             white-space: inactivermal;
         }
     </style>
-
+    @if($items != null)
     <div class="container" style="align-content: center;">
         <div class="row">
             <div class="col-md-6">
-                <form action="{{route('register_user_2')}}" onsubmit="return validation()" method="POST" autocomplete="off">
+                <form action="{{route('edit_3_func')}}" onsubmit="return validation()" method="POST" autocomplete="off">
                     @csrf
                     <fieldset><legend class="text-center">Valid information is required to register. <span class="req"><small> required *</small></span></legend>
+                    
+                    <div class="form-group">
+                        <label for="gender"><font color =red>*</font> Gender </label> 
+                            <input class="form-control" type="text" id = "gender" name = "gender" value = {{$items['gender']}} autocomplete="off" required>
+                            <div class = "alert" id="errgender"></div>  
+                    </div>
 
                     <div class="form-group">
                         <label for="color"><font color =red>*</font> Color Address: </label> 
-                            <input class="form-control" required type="text" id = "color" name="color" required>   
+                            <input class="form-control" required type="text" id = "color" name="color" value = {{$items['color']}} required>   
                                 <div class = "alert" id="errcolor"></div>
                     </div>
 
                     <div class="form-group">
                         <label for="size"><font color =red>*</font> Size: </label><br>
-                        <input type = "size" id = "size" name = "size"  autocomplete="off" required>
+                        <input type = "size" id = "size" name = "size" autocomplete="off" value = {{$items['size']}} required>
                         <div class = "alert" id="errsize"></div>
                     </div>
 
                     <div class="form-group">
                         <label for="price"><font color =red>*</font> Price: </label> 
-                            <input class="form-control" type="text" id = "price" name = "price" required >  
+                            <input class="form-control" type="text" id = "price" name = "price" value = {{$items['price']}} required >  
                                 <div class = "alert" id="errPrice"></div>
                     </div>
-                    
+
                     <div class="form-group">
-                        <input type = "submit" name = "" value = "Add Item">
+                        <input type="hidden" id="id" name="id" value={{$items['id']}}>   
+                        <input type = "submit" name = "" value = "Update Item">
                     </div>
 
                     </fieldset>
             </form>
         </div>
     </div>
+    @endif
     <script type="text/javascript">
         function validation(){
+            var gender = document.getElementById('gender').value;
             var color = document.getElementById("color").value;
             var price = document.getElementById("price").value;
             var size = document.getElementById("size").value;
 
+            if(gender.length < 2){
+                document.getElementById("errgender").innerHTML = "**Write more than one character**";
+                return false;
+            }
+            if(!isNaN(gender)){
+                document.getElementById("errgender").innerHTML = "**Write only alphabets**";
+                return false;
+            }
             if(color.length < 2){
                 document.getElementById("errcolor").innerHTML = "**Write more than one character**";
                 return false;

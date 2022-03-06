@@ -45,14 +45,10 @@ class product extends Controller
     }
     public function registerUser_3(Request $request){
         $variant_3 = new variant_3();
-        $variant_3->variant_3_name = $request->variant_3;
-        $variant_3->city = $request->city;
-        $variant_3->country = $request->country;
-        $variant_3->email = $request->email;
-        // $variant_3->password = Hash::make($request->password);
-        $variant_3->password = $request->password;
-        $variant_3->date_of_birth = $request->date_of_birth;
-        $variant_3->status = $request->status;
+        $variant_3->gender = $request->gender;
+        $variant_3->color = $request->color;
+        $variant_3->size = $request->size;
+        $variant_3->price = $request->price;
         $res = $variant_3 -> save();
         if($res){
             back()->with('success', 'You have registered successfully!');
@@ -66,16 +62,11 @@ class product extends Controller
         return view("auth.Registration_2");
     }
     public function registerUser_2(Request $request){
-        $variant_3 = new variant_2();
-        $variant_3->variant_3_name = $request->variant_3;
-        $variant_3->city = $request->city;
-        $variant_3->country = $request->country;
-        $variant_3->email = $request->email;
-        // $variant_3->password = Hash::make($request->password);
-        $variant_3->password = $request->password;
-        $variant_3->date_of_birth = $request->date_of_birth;
-        $variant_3->status = $request->status;
-        $res = $variant_3 -> save();
+        $variant_2 = new variant_2();
+        $variant_2->color = $request->color;
+        $variant_2->size = $request->size;
+        $variant_2->price = $request->price;
+        $res = $variant_2 -> save();
         if($res){
             back()->with('success', 'You have registered successfully!');
             return redirect('/');
@@ -84,5 +75,33 @@ class product extends Controller
             return back()->with('fail', 'Something Worng!');
         }
     }
+
+    public function editpage3(Request $request){
+        $item = variant_3::where('id', '=', $request->id)->first();
+        return view("auth.edit_3", ['items' => $item]);
+    }
     
+    public function edit3func(Request $request){ 
+        variant_3::where('id', '=', $request->id)->update([
+                                                        "gender" => $request->gender,
+                                                        "color" => $request->color, 
+                                                        "size" => $request->size,
+                                                        "price" => $request->price
+                                                    ]);
+        return redirect('/');
+    }
+
+    public function edit2func(Request $request){ 
+        variant_2::where('id', '=', $request->id)->update([
+                                                            "color" => $request->color, 
+                                                            "size" => $request->size,
+                                                            "price" => $request->price
+                                                        ]);
+        return redirect('/');
+    }
+
+    public function editpage2(Request $request){
+        $item = variant_2::where('id', '=', $request->id)->first();
+        return view("auth.edit_2", ['items' => $item]);
+    }
 }
