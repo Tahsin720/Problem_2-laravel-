@@ -104,4 +104,15 @@ class product extends Controller
         $item = variant_2::where('id', '=', $request->id)->first();
         return view("auth.edit_2", ['items' => $item]);
     }
+
+    public function delete3func(Request $request){
+        $user = variant_3::where('id', '=', $request->id)->first();
+        $user->delete();
+        return redirect('/');
+    }
+    public function delete2func(Request $request){
+        $user = variant_2::where('id', '=', $request->id)->first();
+        $user->delete();
+        return redirect('/');
+    }
 }

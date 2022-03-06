@@ -27,3 +27,6 @@ Route::post('/edit_3_page', [product::class, 'editpage3'])->name('edit_3_page');
 Route::post('/edit_3_func', [product::class, 'edit3func'])->name('edit_3_func');
 Route::post('/edit_2_page', [product::class, 'editpage2'])->name('edit_2_page');
 Route::post('/edit_2_func', [product::class, 'edit2func'])->name('edit_2_func');
+
+Route::post('/delete_3_func', [product::class, 'delete3func'])->name('delete_3_func');
+Route::post('/delete_2_func', [product::class, 'delete2func'])->name('delete_2_func');

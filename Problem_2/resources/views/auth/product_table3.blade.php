@@ -11,7 +11,7 @@
         <style>
             .edit{
                 margin-right: 10px;
-                margin-left:4px;
+                margin-left:28%;
             }
             .delete{
                 margin-left: 33px;
@@ -78,7 +78,7 @@
                                             </form>
                                         </div>
                                         <div class="delete">
-                                            <form action = "" method="POST">
+                                            <form action = "{{route('delete_3_func')}}" method="POST">
                                                 @csrf
                                                 <input type="hidden" id="id" name="id" value={{$infos['id']}}>
                                                 <input class="btn" type="submit" name="delete" id="delete" value="Delete">
